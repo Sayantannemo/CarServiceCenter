@@ -5,8 +5,8 @@ const path = require('path'); // Node.js path module
 const mongoose = require('mongoose');
 const config = require('./config');
 const bodyparser = require('body-parser')
-const bcrypt = require("bcrypt");
-const Customer = require("");
+const Customer = require("./model/customerModel")
+
 
 
 // const routes = require('./routes/routes');
@@ -45,11 +45,37 @@ app.get('/loginpage',(req,res)=>{
 })
 
 app.get('/customer', (req, res) => {
-  res.sendFile(path.join(path1, 'src', 'customers/add_on_services.html'));
+  res.sendFile(path.join(path1, 'src', 'customers/index.html'));
 })
 
 
 // Login route
+app.get("/register", async (req, res) => {
+  try {
+    // Extract data from request body
+    const { name, email, password } = req.body;
+
+    // Check if email already exists
+    const existingUser = await Customer.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ error: "Email already exists" });
+    }
+
+    // Create new user
+    const newUser = new Customer({
+      name,
+      email,
+      password,
+    });
+
+    // Save new user to the database
+    await newUser.save();
+    res.redirect("/loginpage")
+  } catch (err) {
+    console.error("Error registering user:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -63,8 +89,8 @@ app.post("/login", async (req, res) => {
     }
 
     // Check if the password is correct
-    const passwordMatch = await bcrypt.compare(password, user.password);
-    if (!passwordMatch) {
+    
+    if (password != user.password) {
       return res.status(401).json({ message: "Invalid password" });
     }
 
