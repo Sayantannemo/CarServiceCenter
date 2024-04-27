@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/customers.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Book Appointment</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="appointment-details">
+        <h2>Appointment Details</h2>
+        <form>
+          <div>
+            <label for="appointment-date">Appointment Date:</label>
+            <input
+              type="date"
+              id="appointment-date"
+              name="appointment-date"
+              required
+            />
+          </div>
+          <div>
+            <label for="appointment-time">Appointment Time:</label>
+            <input
+              type="time"
+              id="appointment-time"
+              name="appointment-time"
+              required
+            />
+          </div>
+          <button type="submit">Book Appointment</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Vehicle Service Centre</p>
+    </footer>
+  </body>
+</html>

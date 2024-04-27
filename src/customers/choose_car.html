@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Car</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/customers.css">
+</head>
+
+<body>
+    <header>
+        <h1>Choose Your Car</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="car-categories">
+            <h2>Car Categories</h2>
+            <div class="car-category">
+                <h3>Sedans</h3>
+                <p>Explore our range of sedan models for your next service appointment.</p>
+                <button onclick="selectCar('sedan')">Select</button>
+            </div>
+            <div class="car-category">
+                <h3>SUVs</h3>
+                <p>Discover our SUV lineup and book your service appointment now.</p>
+                <button onclick="selectCar('suv')">Select</button>
+            </div>
+            <div class="car-category">
+                <h3>Hatchbacks</h3>
+                <p>Choose from our selection of hatchback models for your service needs.</p>
+                <button onclick="selectCar('hatchback')">Select</button>
+            </div>
+        </section>
+
+        <section id="selected-car">
+            <h2>Selected Car</h2>
+            <p id="selected-car-info">No car selected yet.</p>
+            <button onclick="proceedToCustomPricing()">Proceed to Custom Pricing</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vehicle Service Centre</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function selectCar(carType) {
+            document.getElementById('selected-car-info').innerText = 'You have selected a ' + carType + '.';
+            // You can store the selected car type in a hidden input field or in local storage
+        }
+
+        function proceedToCustomPricing() {
+            // Redirect the user to the custom pricing page
+            window.location.href = 'custom_pricing.html';
+        }
+    </script>
+</body>
+
+</html>

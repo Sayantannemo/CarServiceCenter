@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Management</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+  <style>
+   body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.box {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  overflow: hidden; /* Prevents box content from overflowing */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.box-heading {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+}
+
+.box-description {
+  padding: 20px;
+  background-color: white;
+  border-radius: 0 0 5px 5px;
+}
+
+.box-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.box:hover {
+  transform: translateY(-5px); /* Move the box up on hover */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Add a shadow on hover */
+}
+
+.box-link:hover .box-heading {
+  background-color: #333;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Order Management</h1>
+  
+  <!-- Box 1: Order Listing and Details -->
+  <div class="box">
+    <a href="order_listing.html" class="box-link">
+      <div class="box-heading">1. Order Listing and Details</div>
+      <div class="box-description">
+        <p>Display a list of all orders placed by customers, including details such as order ID, customer name, service requested, order status, date/time placed, and payment status.</p>
+        <p>Allow administrators to view/edit detailed information about each order, including service details, pricing, customer contact information, and any special instructions.</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- Box 2: Order Processing -->
+  <div class="box">
+    <a href="order_processing.html" class="box-link">
+      <div class="box-heading">2. Order Processing</div>
+      <div class="box-description">
+        <p>Provide tools to manage the order processing workflow, such as order approval, scheduling service appointments, assigning tasks to maintenance personnel, and tracking progress.</p>
+        <p>Update order status (e.g., pending, processing, completed, cancelled) based on the order's current stage.</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- Box 3: Billing and Invoicing -->
+  <div class="box">
+    <a href="billing_invoicing.html" class="box-link">
+      <div class="box-heading">3. Billing and Invoicing</div>
+      <div class="box-description">
+        <p>Generate invoices for completed orders, including detailed breakdowns of services, parts used, labor costs, taxes, and total amount due.</p>
+        <p>Track payment statuses and manage billing records, including payment methods used (credit card, cash, etc.) and payment dates.</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- Box 4: Communication and Notifications -->
+  <div class="box">
+    <a href="communication_notifications.html" class="box-link">
+      <div class="box-heading">4. Communication and Notifications</div>
+      <div class="box-description">
+        <p>Implement communication tools to send notifications to customers regarding order status updates, appointment reminders, payment confirmations, and service completion notices.</p>
+        <p>Allow for internal messaging or notes related to specific orders for internal communication among staff members.</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

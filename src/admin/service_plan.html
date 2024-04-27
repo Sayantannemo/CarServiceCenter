@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Service Plans</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+  <style>
+   body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.plan-box {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden; /* Hide overflowing content */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.plan-box:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+.plan-heading {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+}
+
+.plan-details {
+  background-color: white;
+  padding: 20px;
+  border-radius: 0 0 5px 5px;
+}
+
+.plan-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.plan-link:hover {
+  background-color: #f0f0f0;
+}
+
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Car Service Plans</h1>
+  
+  <!-- Basic Maintenance Plan -->
+  <div class="plan-box">
+    <a href="basic_plan.html" class="plan-link">
+      <div class="plan-heading">Basic Maintenance Plan</div>
+      <div class="plan-details">
+        <p>Regular oil change and filter replacement.</p>
+        <p>Tire rotation and pressure check.</p>
+        <p>Visual inspection of belts, hoses, and fluids.</p>
+        <p>Brake system inspection and cleaning.</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- Standard Service Plan -->
+  <div class="plan-box">
+    <a href="standard_plan.html" class="plan-link">
+      <div class="plan-heading">Standard Service Plan</div>
+      <div class="plan-details">
+        <p>Includes all services from the Basic Maintenance Plan.</p>
+        <p>Engine diagnostic and tune-up.</p>
+        <p>Air filter replacement.</p>
+        <p>Battery check and cleaning.</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- Seasonal Maintenance Plan -->
+  <div class="plan-box">
+    <a href="seasonal_plan.html" class="plan-link">
+      <div class="plan-heading">Seasonal Maintenance Plan</div>
+      <div class="plan-details">
+        <p>Tailored services based on seasonal needs (e.g., summer/winter check-ups).</p>
+        <p>HVAC system inspection and cleaning.</p>
+        <p>Fluid top-up and level checks (antifreeze, washer fluid, etc.).</p>
+        <p>Inspection of wiper blades and lights.</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- Premium Maintenance Plan -->
+  <div class="plan-box">
+    <a href="premium_plan.html" class="plan-link">
+      <div class="plan-heading">Premium Maintenance Plan</div>
+      <div class="plan-details">
+        <p>Includes all services from the Comprehensive Inspection Plan.</p>
+        <p>Premium engine and transmission treatments.</p>
+        <p>Advanced diagnostics using diagnostic tools and computer systems.</p>
+        <p>Enhanced warranty or service guarantee.</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
