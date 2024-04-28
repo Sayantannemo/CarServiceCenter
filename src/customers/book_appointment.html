@@ -1,54 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Appointment</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/customers.css" />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment</title>
+  <style>
+    /* General styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
 
-  <body>
-    <header>
-      <h1>Book Appointment</h1>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    /* Navigation styles */
+    header {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
 
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  background-color: #555;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  background-color: #777;
+}
+
+nav ul li.active a {
+  background-color: #444;
+}
+
+    /* Container for centering */
+    .container {
+      width: 100%;
+      max-width: 600px; /* Adjust max-width as needed */
+      margin: 60px auto 20px; /* Adjusted margin to accommodate fixed header */
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form styles */
+    main {
+      text-align: left; /* Align form elements to the left */
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    select,
+    textarea {
+      width: calc(100% - 20px); /* Adjust width for better appearance */
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      display: inline-block; /* Changed to inline-block */
+      vertical-align: middle; /* Added vertical alignment */
+      margin-right: 5px;
+    }
+
+    /* Button styles */
+    button[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 18px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      border-radius: 0 0 8px 8px; /* Rounded corners */
+      font-size: 14px;
+      margin-top: 30px; /* Added margin-top */
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Add-on Services styles */
+    .main-content {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .add-on-service {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Book Appointment</h1>
+    <nav>
+      <ul>
+        <li><a href="/customer">Dashboard</a></li>
+        <li class="active"><a href="/book_appointment">Book Appointment</a></li>
+        <li><a href="/my_services">My Services</a></li>
+        <li><form id="logout-form" action="/logout" method="POST"><button class="logout-button" type="submit">Logout</button></form></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
     <main>
-      <section id="appointment-details">
-        <h2>Appointment Details</h2>
-        <form>
-          <div>
-            <label for="appointment-date">Appointment Date:</label>
-            <input
-              type="date"
-              id="appointment-date"
-              name="appointment-date"
-              required
-            />
+      <form id="appointment-form" action="/payment_portal" method="post">
+        <section id="choose_vehicle">
+          <h2>Choose Your Vehicle</h2>
+          <div id="vehicle-type">
+            <input type="radio" id="two_wheeler" name="vehicle" value="two_wheeler">
+            <label for="two_wheeler">Two Wheeler</label>
+            <input type="radio" id="three_wheeler" name="vehicle" value="three_wheeler">
+            <label for="three_wheeler">Three Wheeler</label>
+            <input type="radio" id="four_wheeler" name="vehicle" value="four_wheeler">
+            <label for="four_wheeler">Four Wheeler</label>
           </div>
-          <div>
-            <label for="appointment-time">Appointment Time:</label>
-            <input
-              type="time"
-              id="appointment-time"
-              name="appointment-time"
-              required
-            />
-          </div>
-          <button type="submit">Book Appointment</button>
-        </form>
-      </section>
-    </main>
 
-    <footer>
-      <p>&copy; 2024 Vehicle Service Centre</p>
-    </footer>
-  </body>
+          <label for="vehicle-model">Vehicle Model:</label>
+          <input type="text" name="modelname" id="modelname" placeholder="Enter your vehicle model">
+        </section>
+
+        <section id="custom_pricing">
+          <h2>Custom Pricing</h2>
+          <section id="custom-pricing-options">
+            <h3>Custom Pricing Options</h3>
+            <div class="pricing-option">
+              <label for="maintenance-plan">Maintenance Plan:</label>
+              <select id="maintenance-plan" name="maintenancePlan">
+                <option value="basic">Basic</option>
+                <option value="standard">Standard</option>
+                <option value="premium">Premium</option>
+              </select>
+            </div>
+            <div class="pricing-option">
+              <label for="special-requests">Special Requests:</label>
+              <textarea id="special-requests" name="specialRequests" rows="4" cols="50" placeholder="Any special requests?"></textarea>
+            </div>
+          </section>
+        </section>
+
+        <section id="add_on_services" class="main-content">
+          <h2>Add-on Services</h2>
+          <section id="add-on-services-options">
+            <div class="add-on-service">
+              <input type="checkbox" id="oil-change" name="selectedServices" value="Oil Change">
+              <label for="oil-change">Oil Change</label>
+            </div>
+            <div class="add-on-service">
+              <input type="checkbox" id="tire-rotation" name="selectedServices" value="Tire Rotation">
+              <label for="tire-rotation">Tire Rotation</label>
+            </div>
+            <div class="add-on-service">
+              <input type="checkbox" id="brake-inspection" name="selectedServices" value="Brake Inspection">
+              <label for="brake-inspection">Brake Inspection</label>
+            </div>
+            <div class="add-on-service">
+              <input type="checkbox" id="engine-tuneup" name="selectedServices" value="Engine Tune-up">
+              <label for="engine-tuneup">Engine Tune-up</label>
+            </div>
+            <div class="add-on-service">
+              <input type="checkbox" id="car-wash" name="selectedServices" value="Car Wash">
+              <label for="car-wash">Car Wash</label>
+            </div>
+            <div class="add-on-service">
+              <input type="checkbox" id="interior-detailing" name="selectedServices" value="Interior Detailing">
+              <label for="interior-detailing">Interior Detailing</label>
+            </div>
+            <div class="add-on-service">
+              <input type="checkbox" id="exterior-detailing" name="selectedServices" value="Exterior Detailing">
+              <label for="exterior-detailing">Exterior Detailing</label>
+            </div>
+            <div class="add-on-service">
+              <input type="checkbox" id="wheel-alignment" name="selectedServices" value="Wheel Alignment">
+              <label for="wheel-alignment">Wheel Alignment</label>
+            </div>
+            <div class="add-on-service">
+              <input type="checkbox" id="battery-replacement" name="selectedServices" value="Battery Replacement">
+              <label for="battery-replacement">Battery Replacement</label>
+            </div>
+            <div class="add-on-service">
+              <input type="checkbox" id="ac-service" name="selectedServices" value="AC Service">
+              <label for="ac-service">AC Service</label>
+            </div>
+            <!-- Add more add-on services here -->
+          </section>
+        </section>
+
+        <section id="book_appointment">
+          <h2>Book Appointment</h2>
+          <!-- Booking appointment functionality goes here -->
+          <section id="appointment-details">
+            <h3>Appointment Details</h3>
+            <div>
+              <label for="appointment-date">Appointment Date:</label>
+              <input type="date" id="appointment-date" name="appointmentDate" required>
+            </div>
+            <div>
+              <label for="appointment-time">Appointment Time:</label>
+              <input type="time" id="appointment-time" name="appointmentTime" required>
+            </div>
+            <br>
+            <button type="submit">Book Appointment</button>
+          </section>
+        </section>
+      </form>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Vehicle Service Centre</p>
+  </footer>
+</body>
 </html>

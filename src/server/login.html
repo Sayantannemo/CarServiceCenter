@@ -54,8 +54,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border: 1px solid #212137;
+	background-color: #464b4d;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -168,9 +168,9 @@ input {
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: #2b292a;
+	background: -webkit-linear-gradient(to right, #706f6e, #181818);
+	background: linear-gradient(to right, #706f6e, #181818);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -251,7 +251,7 @@ footer p {
 }
 
 footer i {
-    color: red;
+    color: rgb(62, 59, 81);
 }
 
 footer a {
@@ -261,10 +261,10 @@ footer a {
   </style> <!-- Link to your CSS file for styling -->
 </head>
 <body>
-  <h2>Weekly Coding Challenge #1: Sign in/up Form</h2>
+  
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="/register" method="get">
+		<form action="/register" method="post">
 			<h1>Create Account</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -272,10 +272,10 @@ footer a {
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
+			<input type="text" placeholder="Name" name="name" />
+			<input type="email" placeholder="Email" name ="email"/>
+			<input type="password" placeholder="Password" name="password" />
+			<button type="submit">Sign Up</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
@@ -287,8 +287,8 @@ footer a {
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your account</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="email" placeholder="Email" name = "email"/>
+			<input type="password" placeholder="Password" name="password"/>
 			<a href="#">Forgot your password?</a>
 			<button>Sign In</button>
 		</form>
@@ -309,15 +309,6 @@ footer a {
 	</div>
 </div>
 
-<footer>
-	<p>
-		Created with <i class="fa fa-heart"></i> by
-		<a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-		- Read how I created this and how you can join the challenge
-		<a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
-	</p>
-</footer>
-
   <script>
     const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
@@ -330,22 +321,6 @@ signUpButton.addEventListener('click', () => {
 signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
-    // function handleLogin() {
-    //   var username = document.getElementById('username').value;
-    //   var password = document.getElementById('password').value;
-    //   var errorMessage = document.getElementById('error-message');
-
-    //   // Basic validation
-    //   if (!username || !password) {
-    //     errorMessage.innerText = 'Username and password are required';
-    //     return false;
-    //   }
-
-    //   // You can replace this with your actual login logic
-    //   // For demonstration purpose, let's just alert the credentials
-    //   alert('Username: ' + username + '\nPassword: ' + password);
-    //   return false; // Prevent form submission for this demo
-    // }
   </script>
 </body>
 </html>

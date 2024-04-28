@@ -4,84 +4,162 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Staff Management</title>
-   <!-- <link rel="stylesheet" href="test.css">Link to your CSS file -->
   <style>
-    body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-  }
+      header {
+        background-color: #333;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li {
+        display: inline;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        display: inline-block;
+        background-color: #555; /* Default background color */
+      }
+
+      nav ul li a:hover {
+        background-color: #777;
+      }
+
+      nav ul li.active a {
+        background-color: #444; /* Active page background color */
+      }
+
+      main {
+        padding: 20px;
+        flex: 1; /* Take remaining space */
+      }
+
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+/* Button styling */
+button.logout-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.logout-button:hover {
+  background-color: #0056b3;
+}
   
-  .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+    main {
+      padding: 20px;
+      flex: 1; /* Take remaining space */
+    }
   
-  h1, h2 {
-    text-align: center;
-  }
+    /* Form and container styles */
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
   
-  form {
-    display: grid;
-    gap: 10px;
-  }
+    h1, h2 {
+      text-align: center;
+    }
   
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  button {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
+    #newStaffForm {
+      display: grid;
+      gap: 10px;
+    }
   
-  button {
-    background-color: #333;
-    color: #fff;
-    cursor: pointer;
-  }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    button {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
   
-  button:hover {
-    background-color: #555;
-  }
+    button {
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+      padding: 15px 30px; /* Increase padding to make the button larger */
+      font-size: 18px; /* Increase font size to make the text larger */
+    }
   
+    button:hover {
+      background-color: #555;
+    }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>Staff Management</h1>
+<header>
+  <h1>Admin Dashboard</h1>
+  <nav>
+    <ul>
+      <li><a href="/admin">Dashboard</a></li>
+      <li class="active"><a href="/staff_management">Staff Management</a></li>
+      <li><a href="/report_management">Report Management</a></li>
+      <li><a href="/transactions">Total Revenue</a></li>
+      <li><form id="logout-form" action="/logout" method="POST"><button class="logout-button" type="submit">Logout</button></form></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+    <h1>Staff Management</h1>
+    
+    <!-- Staff List Display -->
+    <div id="staffList">
+      <!-- Staff list will be dynamically populated here -->
+    </div>
   
-  <!-- Staff List Display -->
-  <div id="staffList">
-    <!-- Staff list will be dynamically populated here -->
+    <!-- Add New Staff Member Form -->
+    <div id="addStaffForm">
+      <h2>Add New Staff Member</h2>
+      <form id="newStaffForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="mobile" pattern="[0-9]{10}" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        <label for="password">Password:</label>
+        <input type="text" id="password" required>
+        <!-- Add more fields as needed -->
+        <button type="submit">Add Staff</button>
+      </form>
+    </div>
   </div>
+</main>
 
-  <!-- Add New Staff Member Form -->
-  <div id="addStaffForm">
-    <h2>Add New Staff Member</h2>
-    <form id="newStaffForm">
-      <label for="name">Name:</label>
-      <input type="text" id="name" required>
-      <label for="mobile">Mobile:</label>
-    <input type="tel" id="mobile" pattern="[0-9]{10}" required>
-      <label for="email">Email:</label>
-      <input type="email" id="email" required>
-      <label for="role">Role:</label>
-      <input type="text" id="role" required>
-      <!-- Add more fields as needed -->
-      <button type="submit">Add Staff</button>
-    </form>
-  </div>
-
-  <!-- JavaScript to handle functionalities -->
-  <script src="script.js"></script>
-</div>
+<footer>
+  <p>&copy; 2024 Vehicle Service Centre</p>
+</footer>
 
 </body>
 </html>

@@ -1,41 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Dashboard</title>
+    <style>
+          /* CSS for navigation bar */
+      /* CSS for navigation bar */
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicle Service Centre</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/customers.css">
-</head>
+* {
+      font-family:"'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif'";
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<body>
+    body {
+      margin:  10px;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      min-height: 100vh;
+    }
+    
+      header {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  background-color: #555;
+  border-radius: 5px;
+}
+
+nav ul li a:hover {
+  background-color: #777;
+}
+
+nav ul li.active a {
+  background-color: #444;
+}
+
+/* Button styling */
+button.logout-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.logout-button:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for main content */
+main {
+  padding: 20px;
+  text-align: center; /* Align all content in the center */
+}
+
+/* Additional styling for sections */
+section {
+  text-align: left; /* Align items in each section to the left */
+}
+
+section#welcome {
+  margin-top: 50px;
+}
+
+section#welcome h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+section#welcome p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Additional styling for vehicle service details */
+.service-details {
+  margin-top: 30px;
+}
+
+.service-details h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.service-details ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-details li {
+  margin-bottom: 10px;
+}
+
+.service-details li span {
+  font-weight: bold;
+}
+
+/* Additional styling for vehicle service details in the body */
+.vehicle-details {
+  margin-top: 30px;
+}
+
+.vehicle-details h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.vehicle-details p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Styling for footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  /* bottom: 0; */
+  margin-top: 80px;
+  width: 100%;
+}
+
+footer p {
+  font-size: 14px;
+}
+
+
+
+    </style>
+  </head>
+
+  <body>
     <header>
-        <h1>Vehicle Service Centre</h1>
-        <nav>
-            <ul>
-                <li><a href="choose_car.html">Choose Car</a></li>
-                <li><a href="custom_pricing.html">Custom Pricing</a></li>
-                <li><a href="add_on_services.html">Add-On Services</a></li>
-                <li><a href="payment_summary.html">Payment Summary</a></li>
-                <li><a href="book_appointment.html">Book Appointment</a></li>
-                <li><a href="reschedule_appointment.html">Reschedule Appointment</a></li>
-                <li><a href="service_status.html">Service Status</a></li>
-                <li><a href="my_services.html">My Services</a></li>
-            </ul>
-        </nav>
+      <h1>Customer Dashboard</h1>
+      <nav>
+        <ul>
+          <li class="active"><a href="/customer">Dashboard</a></li>
+          <li><a href="/book_appointment">Book Appointment</a></li>
+          <li><a href="/my_services">My Services</a></li>
+          <li><form id="logout-form" action="/logout" method="POST"><button class="logout-button" type="submit">Logout</button></form></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <section id="welcome">
-            <h2>Welcome to Vehicle Service Centre</h2>
-            <p>Choose from the options above to get started with our services.</p>
-        </section>
-    </main>
+  <section id="welcome">
+    <h2 style="font-size: 28px;">Welcome to Vehicle Service Centre</h2>
+    <p style="font-size: 18px;">At our Vehicle Service Centre, we are committed to providing top-quality service for all your vehicle maintenance needs. Our team of experienced technicians is dedicated to ensuring your vehicle receives the care and attention it deserves.</p>
+    <p style="font-size: 18px;">Explore the services we offer and book an appointment today to experience the difference!</p>
+  </section>
+
+  <section class="service-details">
+    <h3 style="font-size: 24px;">Our Services</h3>
+    <p style="font-size: 18px;">From routine maintenance to complex repairs, our comprehensive range of services covers everything your vehicle needs to stay in optimal condition:</p>
+    <ul>
+      <li><span style="font-weight: bold;">Oil Changes:</span> Keep your engine running smoothly with regular oil changes using high-quality oil and filters.</li>
+      <li><span style="font-weight: bold;">Brake Services:</span> Ensure your brakes are operating safely and effectively with brake inspections, repairs, and replacements.</li>
+      <li><span style="font-weight: bold;">Tire Services:</span> Maintain proper tire pressure, tread depth, and alignment for optimal performance and safety.</li>
+      <li><span style="font-weight: bold;">Diagnostic Services:</span> Identify and address any issues with advanced diagnostic tools and techniques.</li>
+      <li><span style="font-weight: bold;">Engine Tune-Ups:</span> Improve fuel efficiency, performance, and reliability with comprehensive engine tune-ups.</li>
+    </ul>
+  </section>
+
+  <section class="vehicle-details">
+    <h3 style="font-size: 24px;">Your Vehicle's Health Is Our Priority</h3>
+    <p style="font-size: 18px;">At our Vehicle Service Centre, we understand that your vehicle is more than just a mode of transportation – it's an investment in your safety and convenience. That's why we go above and beyond to ensure your vehicle receives the care it deserves, using state-of-the-art equipment and genuine parts to keep it running at its best.</p>
+    <p style="font-size: 18px;">Trust our team of skilled technicians to provide expert care for your vehicle and enjoy peace of mind on the road ahead.</p>
+  </section>
+</main>
 
     <footer>
-        <p>&copy; 2024 Vehicle Service Centre</p>
+      <p>&copy; 2024 Vehicle Service Centre</p>
     </footer>
-</body>
 
+    
+  </body>
 </html>

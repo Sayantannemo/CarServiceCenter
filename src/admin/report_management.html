@@ -1,113 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Management</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Orders</title>
     <style>
-        /* CSS for navigation bar */
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
+      /* CSS for navigation bar */
+      header {
+        background-color: #333;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+      }
 
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
 
-        nav ul li {
-            display: inline;
-        }
+      nav ul li {
+        display: inline;
+      }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            display: inline-block;
-            background-color: #555; /* Default background color */
-        }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        display: inline-block;
+        background-color: #555; /* Default background color */
+      }
 
-        nav ul li a:hover {
-            background-color: #777;
-        }
+      nav ul li a:hover {
+        background-color: #777;
+      }
 
-        nav ul li.active a {
-            background-color: #444; /* Active page background color */
-        }
+      nav ul li.active a {
+        background-color: #444; /* Active page background color */
+      }
 
-        main {
-            padding: 20px;
-            flex: 1; /* Take remaining space */
-        }
+      main {
+        padding: 20px;
+        flex: 1; /* Take remaining space */
+      }
 
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>Report Management</h1>
-        <nav>
-            <ul>
-                <li class="active"><a href="report_management.html">Report Management</a></li>
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="staff_management.html">Staff Management</a></li>
-                <li><a href="car_management.html">Car Management</a></li>
-                <li><a href="service_plan_management.html">Service Plan Management</a></li>
-                <li><a href="order_management.html">Order Management</a></li>
-            </ul>
-        </nav>
+      <h1>All Orders</h1>
+      <nav>
+        <ul>
+          <li><a href="/admin">Dashboard</a></li>
+          <li><a href="/staff_management">Staff Management</a></li>
+          <li><a href="/car_management">Car Management</a></li>
+          <li><a href="/service_plan_management">Service Plan Management</a></li>
+          <li><a href="/order_management">Order Management</a></li>
+          <li class="active"><a href="/report_management">All Orders</a></li>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <section id="report-options">
-            <h2>Generate Reports</h2>
-            <form id="report-form">
-                <div>
-                    <label for="report-type">Report Type:</label>
-                    <select id="report-type" name="report-type">
-                        <option value="order">Orders</option>
-                        <option value="staff">Staff</option>
-                        <option value="car">Cars</option>
-                        <option value="service">Service Plans</option>
-                        <!-- Add more report types as needed -->
-                    </select>
-                </div>
-                <div>
-                    <label for="date-range">Date Range:</label>
-                    <input type="date" id="start-date" name="start-date" required>
-                    <span>to</span>
-                    <input type="date" id="end-date" name="end-date" required>
-                </div>
-                <button type="submit">Generate Report</button>
-            </form>
-        </section>
+      <section id="report-options">
+        <h2>Generate Reports</h2>
+        <form id="report-form">
+          <div>
+            <label for="report-type">Report Type:</label>
+            <select id="report-type" name="report-type">
+              <option value="order">Orders</option>
+              <option value="staff">Staff</option>
+              <option value="car">Cars</option>
+              <option value="service">Service Plans</option>
+              <!-- Add more report types as needed -->
+            </select>
+          </div>
+          <div>
+            <label for="date-range">Date Range:</label>
+            <input type="date" id="start-date" name="start-date" required />
+            <span>to</span>
+            <input type="date" id="end-date" name="end-date" required />
+          </div>
+          <button type="submit">Generate Report</button>
+        </form>
+      </section>
 
-        <section id="report-results">
-            <h2>Report Results</h2>
-            <div id="report-table-container">
-                <!-- Report results will be dynamically populated here -->
-            </div>
-        </section>
+      <section id="report-results">
+        <h2>Report Results</h2>
+        <div id="report-table-container">
+          <!-- Report results will be dynamically populated here -->
+        </div>
+      </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Vehicle Service Centre</p>
+      <p>&copy; 2024 Vehicle Service Centre</p>
     </footer>
     <script src="js/reports.js"></script>
-</body>
-
+  </body>
 </html>

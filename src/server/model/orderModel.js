@@ -1,19 +1,42 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const orderSchema = mongoose.Schema({
-  customerId: { type: String },
-  customerName: { type: String },
-  carName: { type: String },
-  carNumber: { type: String },
-  custAddress: { type: String, max: 40 },
-  serviceName: { type: String },
-  servicePrice: { type: Number },
-  mechanicId: { type: String },
-  requestedOn: { type: Date, default: Date.now() },
-  deliveredOn: { type: Date },
-  status: {
+// Define the schema
+const OrderSchema = new mongoose.Schema({
+  userName: {
     type: String,
+    required: true
   },
+  userEmail: {
+    type: String,
+    required: true
+  },
+  vehicleModel: {
+    type: String,
+    required: true
+  },
+  appointmentDate: {
+    type: Date,
+    required: true
+  },
+  appointmentTime: {
+    type: String,
+    required: true
+  },
+  maintenancePlan: {
+    type: String,
+    required: true
+  },
+  specialRequests: String,
+  selectedServices: [String],
+  vehicleType: String,
+  totalPrice: Number,
+  orderStatus: {
+    type: String,
+    default: "pending"
+  }
 });
 
-module.exports = mongoose.model("order", orderSchema);
+// Create the model
+const Order = mongoose.model('Order', OrderSchema);
+
+module.exports = Order;
